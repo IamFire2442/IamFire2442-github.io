@@ -55,10 +55,18 @@ window.onload = function() {
             if(key.isPressed('s')) {
                 blob.y += blob.vy;
             } else if(key.isPressed('f')) {
-                if(bullets.length < 1) {
-                var newbullet = new Bullet(blob.x, blob.y, Math.cos(blob.angle), Math.sin(blob.angle)); 
+
+                var canshoot = true
                 
-                bullets.push(newbullet);
+                if(canshoot) {
+                    var newbullet = new Bullet(blob.x, blob.y, Math.cos(blob.angle), Math.sin(blob.angle)); 
+                    bullets.push(newbullet);
+             
+                    canshoot = false;
+
+                    setTimeout(() => {
+                        canshoot = true;
+                    }, 1000);
                 }
             }
 
