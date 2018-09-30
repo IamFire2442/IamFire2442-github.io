@@ -85,11 +85,11 @@ window.onload = function() {
         function draw (canvas) {
             var c = canvas.getContext("2d");
             clearCanvas(canvas);
-
-            blob.draw(c);
             bullets.forEach((bullet) => {
                 bullet.drawBullet(c);
             });
+            blob.draw(c);
+
         }
 
     
