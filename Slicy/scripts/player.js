@@ -7,9 +7,11 @@ class Player {
         this.spd = Math.sqrt(this.mass);
         this.speed = 40/this.spd;
 
+        this.timeStarted = Date.now();
 
         this.r = Math.random() * 255; this.g = Math.random() * 255; this.b = Math.random() * 255;
-
+        this.kills = 0;
+        this.foodEaten = 0;
     }
 
     addMass(m) {
@@ -18,6 +20,14 @@ class Player {
 
     loseMass(m) {
         this.mass -= m;
+    }
+
+    addKill() {
+        this.kills++;
+    }
+
+    addFoodEat() {
+        this.foodEaten++;
     }
 
     update() {
@@ -52,10 +62,9 @@ class Player {
     }
 
     draw(c) {
-        c.font = "30px serif";
+        c.font = "30px Arial";
         c.strokeText(`Mass: ${Math.round(this.mass)}`, 0, 20);
         c.strokeText(`Speed: ${Math.round(this.speed)}mph`, 200, 20);
-
         c.beginPath();
         c.fillStyle = `black`;
         c.rect(this.x, this.y, this.mass, this.mass);
