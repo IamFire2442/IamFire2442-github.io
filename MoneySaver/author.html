@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <div class="topnav">
+  <a href="home.html">Home</a>
+  <a href="example.html">Examples</a>
+  <a href="author.html">Author</a>
+  <a href="#1">Discord</a>        
+</div>
+    <h1>The Author of this Project</h1>
+    <p>Author fire</p>
+    
+       
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<p>This is Msbot, Drag and Drop Msbot!</p>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="msbot.png" draggable="true"
+ondragstart="drag(event)" width="200" height="150">
+        
+<form action="/action_page.php">
+  <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+  <br>
+  <input type="submit">
+</form>
+    
+    
+</body>
+</html>

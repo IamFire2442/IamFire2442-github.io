@@ -1,0 +1,30 @@
+
+/*
+    Define Discord Package.
+*/
+const Discord = require('discord.js);
+/*
+    Define Client that you will be working with.
+*/
+const client = require('discord.js);
+    
+    /*
+    Emitted Whenever client is Online.
+    */
+client.on('ready', () => {
+    console.log(`MSbot is ready!`);
+});
+
+/*
+  Message event.
+*/
+
+client.on('message', (message) => {
+    if(message.author.bot) return;
+
+    if(message.content.startsWith('ping')) {
+    message.reply('Pong!');
+    }
+});
+
+client.login(MySuperSecretToken);
